@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 
+export const metadata = {
+  title: 'All Users',
+  description: 'all the users information',
+}
+
 const UsersPage = async() => {
     const res = await fetch("https://jsonplaceholder.typicode.com/users");
     const users = await res.json();
@@ -18,7 +23,7 @@ const UsersPage = async() => {
                 </p>
                 <div className="card-actions justify-end">
                   <Link href={`/users/${user.id}`}>
-                    <button className="btn">Buy Now</button>
+                    <button className="btn">Show Info...</button>
                   </Link>
                 </div>
               </div>

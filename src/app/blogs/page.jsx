@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
 
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+});
+
 const BlogsPage = () => {
 
     const blogs = [
@@ -47,18 +54,21 @@ const BlogsPage = () => {
     ];
 
     return (
-        <div>
-            <h2 className="text-2xl font-bold mb-4">Blogs Page</h2>
+      <div className={roboto.className}>
+        <h2 className="text-2xl font-bold mb-4">Blogs Page</h2>
 
-            {blogs.map(blog => (
-                <div key={blog.id}>
-                    <h3 className="text-xl font-semibold">{blog.title}</h3>
-                    <Link href={`/blogs/${blog.id}`} className="text-blue-500 hover:underline">
-                        Show Details
-                    </Link>
-                </div>
-            ))}
-        </div>
+        {blogs.map((blog) => (
+          <div key={blog.id}>
+            <h3 className="text-xl font-semibold">{blog.title}</h3>
+            <Link
+              href={`/blogs/${blog.id}`}
+              className="text-blue-500 hover:underline"
+            >
+              Show Details
+            </Link>
+          </div>
+        ))}
+      </div>
     );
 };
 
